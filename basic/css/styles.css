@@ -12,3 +12,13 @@ h1 {
 h3 {
   color: #0d7377;
 }
+
+/* Class Selectors */
+.hello {
+  background-color: red;
+}
+
+/* ID Selectors */
+#world {
+  background-color: blue;
+}
