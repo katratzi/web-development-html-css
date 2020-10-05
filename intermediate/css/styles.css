@@ -3,6 +3,7 @@ body {
   text-align: center;
   /* font-family: Arial, Helvetica, sans-serif; */
   font-family: "Merriweather", serif;
+  color: #40514e;
 }
 
 h1 {
@@ -21,6 +22,7 @@ h2 {
   font-size: 2.5rem;
   color: #66bfbf;
   font-weight: normal;
+  padding-bottom: 10px;
 }
 h3 {
   font-family: "Montserrat", sans-serif;
@@ -28,6 +30,15 @@ h3 {
 }
 a {
   color: #11999e;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: underline;
+  color: #eaf6f6;
+}
+
+p{
+  line-height: 2;
 }
 .skill-row {
   display: block;
