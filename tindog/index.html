@@ -11,13 +11,17 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700;900&family=Ubuntu:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
     <section id="title">
       <!-- Nav Bar -->
 
-      <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-md navbar-dark">
         <a class="navbar-brand" href="">tindog</a>
         <button
           class="navbar-toggler"
@@ -47,13 +51,17 @@
 
       <!-- Title -->
 
-      <div>
-        <h1>Meet new and interesting dogs nearby.</h1>
-        <button type="button">Download</button>
-        <button type="button">Download</button>
-      </div>
-      <div>
-        <img src="images/iphone6.png" alt="iphone-mockup" />
+      <div class="row">
+        <!-- means anything on a large screen take up 50% -->
+        <!-- don't need to to the same for md-12 as by default they take up the full 100% -->
+        <div class="col-lg-6">
+          <h1>Meet new and interesting dogs nearby.</h1>
+          <button type="button">Download</button>
+          <button type="button">Download</button>
+        </div>
+        <div class="col-lg-6">
+          <img src="images/iphone6.png" alt="iphone-mockup" />
+        </div>
       </div>
     </section>
 
