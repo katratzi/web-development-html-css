@@ -5,22 +5,38 @@
 
 body {
   background-color: #edf2f8;
-  position: relative;
 }
 
+/* our main centered box with rounded corners */
 .article {
+  /* this handles the image not having square corners */
   overflow: hidden;
   margin: 260px auto;
   width: 720px;
   height: 280px;
   background-color: white;
   border-radius: var(--corners);
-
   box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.1);
 }
 
 .article-image {
-  left: 0px;
+  /* left: 0px;
+  position: absolute;
+  left: 0; */
+  background-color: green;
+  display: inline-block;
+  height: 100%;
+  width: 280px;
+  /* overflow: hidden; */
+}
+
+.article-image img {
   height: 280px;
-  float: left;
+}
+
+.article-text {
+  background-color: red;
+  display: inline-block;
+  height: 100%;
+  width: 436px;
 }
