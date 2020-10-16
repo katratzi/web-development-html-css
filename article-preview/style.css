@@ -5,6 +5,16 @@
 
 body {
   background-color: #edf2f8;
+  font-size: 13px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.2rem;
+  margin: 0px;
+  padding: 0px;
 }
 
 /* our main centered box with rounded corners */
@@ -17,6 +27,7 @@ body {
   background-color: white;
   border-radius: var(--corners);
   box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.1);
+  padding: 0px;
 }
 
 .article-image {
@@ -27,7 +38,7 @@ body {
   display: inline-block;
   height: 100%;
   width: 280px;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .article-image img {
@@ -35,8 +46,9 @@ body {
 }
 
 .article-text {
+  margin: 0px;
   background-color: red;
-  display: inline-block;
-  height: 100%;
+  float: right;
+  height: 280px;
   width: 436px;
 }
