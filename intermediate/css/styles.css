@@ -112,3 +112,11 @@ hr {
   left: 30%;
   bottom: 300px;
 }
+
+.contact-me{
+  margin-bottom: 20px;
+}
+.btn:hover{
+  text-decoration: underline;
+  color: #222;
+}
