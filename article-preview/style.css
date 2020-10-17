@@ -54,9 +54,6 @@ body {
 }
 .article-text p {
   color: hsl(212, 23%, 69%);
-  /* color: hsl(217, 19%, 35%);
-  color: hsl(214, 17%, 51%); */
-  /* color: hsl(210, 46%, 95%); */
 }
 
 .article-author {
@@ -97,7 +94,11 @@ body {
 .article-share img {
   width: 16px;
   height: 16px;
-
   position: relative;
   top: 6px;
+  color: red;
+}
+
+.article-share:hover {
+  background-color: var(--Grayish-Blue);
 }
