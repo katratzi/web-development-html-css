@@ -102,3 +102,26 @@ body {
 .article-share:hover {
   background-color: var(--Grayish-Blue);
 }
+
+/* on mobile flip to a vertical design */
+
+@media (max-width: 740px) {
+  .article {
+    /* this handles the image not having square corners */
+    overflow: hidden;
+    margin: 260px auto;
+    width: 330px;
+    height: 512px;
+  }
+  .article-image {
+    left: 0px;
+    position: absolute;
+    height: 200px;
+    width: 330px;
+    overflow: hidden;
+  }
+
+  .article-image img {
+    width: 330px;
+  }
+}
