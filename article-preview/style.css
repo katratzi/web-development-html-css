@@ -130,6 +130,20 @@ body {
     margin-left: 0px;
   }
 
+  .article h1 {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  /* position on the bottom too */
+  .article-author {
+    /* background-color: cornflowerblue; */
+    padding-top: 0.5em;
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    width: 200px;
+  }
   /* just override position to use a bit less padding */
   .article-share {
     bottom: 30px;
