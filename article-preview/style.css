@@ -104,7 +104,6 @@ body {
 }
 
 /* on mobile flip to a vertical design */
-
 @media (max-width: 740px) {
   .article {
     /* this handles the image not having square corners */
@@ -113,15 +112,27 @@ body {
     width: 330px;
     height: 512px;
   }
+
+  /* resize image based on width instead of height  */
   .article-image {
-    left: 0px;
     position: absolute;
     height: 200px;
     width: 330px;
-    overflow: hidden;
   }
-
   .article-image img {
     width: 330px;
+  }
+
+  /* and now reset margin left back to 0 and instead use top */
+  .article-text {
+    padding: 30px; /* bit less padding */
+    margin-top: 200px;
+    margin-left: 0px;
+  }
+
+  /* just override position to use a bit less padding */
+  .article-share {
+    bottom: 30px;
+    right: 30px;
   }
 }
