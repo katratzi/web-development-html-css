@@ -61,6 +61,7 @@ body {
 
 .article-author {
   /* background-color: cornflowerblue; */
+  padding-top: 0.5em;
 }
 
 .article-author-name {
@@ -68,9 +69,9 @@ body {
   color: var(--Very-Dark-Grayish-Blue);
 }
 .article-author-date {
-  font-weight: 700;
-  color: hsl(212, 23%, 69%);
   font-weight: 500;
+  color: hsl(212, 23%, 69%);
+  padding-top: 0.5em;
 }
 
 /* rounded portrait with some space on the right for author details */
@@ -83,16 +84,20 @@ body {
 
 /* the little share graphic */
 .article-share {
-  float: right;
   width: 30px;
   height: 30px;
   border-radius: 100%;
   background-color: var(--Light-Grayish-Blue);
   text-align: center;
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
 }
 
 .article-share img {
   width: 16px;
   height: 16px;
-  padding-top: 6px;
+
+  position: relative;
+  top: 6px;
 }
