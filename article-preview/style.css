@@ -80,4 +80,19 @@ body {
   float: left;
   margin-right: 16px;
 }
+
+/* the little share graphic */
+.article-share {
+  float: right;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: var(--Light-Grayish-Blue);
+  text-align: center;
+}
+
+.article-share img {
+  width: 16px;
+  height: 16px;
+  padding-top: 6px;
 }
