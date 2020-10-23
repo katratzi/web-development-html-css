@@ -24,3 +24,11 @@ document.querySelector(".img2").getAttribute("src");
 document
   .querySelector(".img2")
   .setAttribute("src", "images/dice" + diceRoll2 + ".png");
+
+if (diceRoll1 > diceRoll2) {
+  document.querySelector("h1").innerText = "🚩 Player 1 Wins";
+} else if (diceRoll2 > diceRoll1) {
+  document.querySelector("h1").innerText = "Player 2 Wins 🚩";
+} else if (diceRoll2 === diceRoll1) {
+  document.querySelector("h1").innerText = "Draw";
+}
