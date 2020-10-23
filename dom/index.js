@@ -25,3 +25,14 @@ document.querySelectorAll("item");
 
 // example usage
 document.querySelector("li a").style.color = "red";
+
+// add remove and toggle classes so the style can be kept seperate
+document.querySelector("h1").classList.add("huge");
+document.querySelector("h1").classList.remove("huge");
+document.querySelector("h1").classList.toggle("huge");
+
+// everything in the anchor tag
+document.querySelector("a").attributes;
+// gets what the url is and setters, takes two values
+document.querySelector("a").getAttribute("href");
+document.querySelector("a").setAttribute("href", "http://www.bing.com");
