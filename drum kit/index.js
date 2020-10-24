@@ -43,3 +43,12 @@ function divide(num1, num2) {
 function calculator(num1, num2, operator) {
   return operator(num1, num2);
 }
+
+// constructor function
+// also known as a factory function
+// not Capital letter for name
+function HouseKeeper(name, years, cleaning) {
+  (this.name = name), (this.years = years), (this.cleaning = cleaning);
+}
+// create the object
+var hk1 = new HouseKeeper("angela", 12, ["beds", "baths"]);
