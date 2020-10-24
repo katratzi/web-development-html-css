@@ -79,3 +79,13 @@ function HouseKeeper(name, years, cleaning) {
 }
 // create the object
 var hk1 = new HouseKeeper("angela", 12, ["beds", "baths"]);
+
+//  adding a function to the object
+function HouseKeeperAgain(name, years, cleaning) {
+  (this.name = name),
+    (this.years = years),
+    (this.cleaning = cleaning),
+    (this.clean = function () {
+      alert("performing cleaning");
+    });
+}
