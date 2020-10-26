@@ -9,47 +9,57 @@ function handleClick() {
 //     console.log("I got clicked");
 //   });
 
+function playDrum(key) {
+  switch (key) {
+    case "w":
+      var tom1 = new Audio("sounds/tom-1.mp3");
+      tom1.play();
+      break;
+    case "a":
+      var tom2 = new Audio("sounds/tom-2.mp3");
+      tom2.play();
+      break;
+    case "s":
+      var tom3 = new Audio("sounds/tom-3.mp3");
+      tom3.play();
+      break;
+    case "d":
+      var tom4 = new Audio("sounds/tom-4.mp3");
+      tom4.play();
+      break;
+    case "j":
+      var snare = new Audio("sounds/snare.mp3");
+      snare.play();
+      break;
+    case "k":
+      var kick = new Audio("sounds/kick-bass.mp3");
+      kick.play();
+      break;
+    case "l":
+      var crash = new Audio("sounds/crash.mp3");
+      crash.play();
+      break;
+    default:
+      console.log(key);
+      break;
+  }
+}
+
 var allDrumButtons = document.querySelectorAll(".drum");
 for (var i = 0; i < allDrumButtons.length; i++) {
   //   allDrumButtons[i].addEventListener("click", handleClick);
   allDrumButtons[i].addEventListener("click", function () {
     //play sound depending on key
     var buttonInnterHtml = this.innerHTML;
-    switch (buttonInnterHtml) {
-      case "w":
-        var tom1 = new Audio("sounds/tom-1.mp3");
-        tom1.play();
-        break;
-      case "a":
-        var tom2 = new Audio("sounds/tom-2.mp3");
-        tom2.play();
-        break;
-      case "s":
-        var tom3 = new Audio("sounds/tom-3.mp3");
-        tom3.play();
-        break;
-      case "d":
-        var tom4 = new Audio("sounds/tom-4.mp3");
-        tom4.play();
-        break;
-      case "j":
-        var snare = new Audio("sounds/snare.mp3");
-        snare.play();
-        break;
-      case "k":
-        var kick = new Audio("sounds/kick-bass.mp3");
-        kick.play();
-        break;
-      case "l":
-        var crash = new Audio("sounds/crash.mp3");
-        crash.play();
-        break;
-      default:
-        console.log(buttonInnterHtml);
-        break;
-    }
+    playDrum(buttonInnterHtml);
   });
 }
+
+// add event listener for whole document to get key presses
+document.addEventListener("keypress", function (event) {
+  console.log(event);
+  playDrum(event.key);
+});
 
 // passing functions as arguents
 // known as higher order functions
