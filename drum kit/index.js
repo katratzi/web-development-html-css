@@ -52,6 +52,7 @@ for (var i = 0; i < allDrumButtons.length; i++) {
     //play sound depending on key
     var buttonInnterHtml = this.innerHTML;
     playDrum(buttonInnterHtml);
+    buttonAnimation(buttonInnterHtml);
   });
 }
 
@@ -59,7 +60,16 @@ for (var i = 0; i < allDrumButtons.length; i++) {
 document.addEventListener("keypress", function (event) {
   console.log(event);
   playDrum(event.key);
+  buttonAnimation(event.key);
 });
+
+function buttonAnimation(currentKey) {
+  var activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+  setTimeout(function () {
+    activeButton.classList.remove("pressed");
+  }, 100);
+}
 
 // passing functions as arguents
 // known as higher order functions
