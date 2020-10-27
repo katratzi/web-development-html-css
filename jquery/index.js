@@ -26,3 +26,12 @@ $("button").text("Bye");
 
 // instead of innerHTML
 $("button").html("<em>Bye</em>");
+
+// altering attributes
+console.log($("img").attr("src"));
+
+// set the attribute - second arguments are setters
+$("a").attr("href", "http://www.bing.com");
+
+// when we add classes to our elements, can get these with
+$("h1").attr("class");
