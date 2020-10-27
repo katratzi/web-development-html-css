@@ -105,3 +105,7 @@ $("h1").slideUp();
 $("h1").slideDown();
 $("h1").slideToggle();
 
+// animate only numeric values
+$("h1").animate({ opacity: 0.5 });
+// chain together
+$("h1").slideUp(2000).slideDown().animate({ opacity: 0.5 });
