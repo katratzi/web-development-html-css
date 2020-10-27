@@ -67,3 +67,12 @@ $(document).keypress(function (event) {
 $("h1").on("mouseover", function (event) {
   $("h1").css("color", "green");
 });
+
+// Adding and removing elements with jQuery
+$("h1").before("<button>new</button>");
+$("h1").after("<button>new</button>");
+// these go inside the h1 tag itself
+$("h1").prepend("<button>new</button>");
+$("h1").append("<button>new</button>");
+// remove
+$("button").remove();
