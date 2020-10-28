@@ -68,6 +68,16 @@ $(".btn").on("click", function () {
 function checkAnswer(currentLevel) {
   if (userClickedPattern[currentLevel] != gamePattern[currentLevel]) {
     console.log("wrong");
+    // wrong sound (small delay so doesn't overlap)
+    // flash red style for game-over
+    setTimeout(function () {
+      playSound("wrong");
+      resetGame();
+      $("body").addClass("game-over");
+    }, 200);
+    setTimeout(function () {
+      $("body").removeClass("game-over");
+    }, 400);
   } else {
     console.log("right");
     // correctly matched sequence. add new pattern
@@ -77,4 +87,12 @@ function checkAnswer(currentLevel) {
       }, 1000);
     }
   }
+}
+
+// show game over message, and clear our game data ready for new level
+function resetGame() {
+  $("#level-title").text("Game Over, press any key to restart");
+  gamePattern = [];
+  level = 0;
+  gameHasStarted = false;
 }
