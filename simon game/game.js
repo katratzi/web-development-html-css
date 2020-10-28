@@ -18,6 +18,11 @@ $(document).on("keypress", function () {
 
 // next sequence in game
 function nextSequence() {
+  // update level each time
+  level++;
+  $("#level-title").text("Level: " + level);
+  //reset players sequence
+  userClickedPattern = [];
   // get a random color
   var randomNumber = Math.floor(Math.random() * 4);
   var randomChosenColor = buttonColors[randomNumber];
@@ -28,9 +33,6 @@ function nextSequence() {
     .animate({ opacity: 0.1 }, 100)
     .animate({ opacity: 1 }, 100);
   playSound(randomChosenColor);
-  // update level each time
-  level++;
-  $("#level-title").text("Level: " + level);
 }
 
 // helper for playing back sounds
@@ -49,9 +51,30 @@ function animatePress(currentColour) {
 
 // player clicking on buttons
 $(".btn").on("click", function () {
+  // haven't started yet
+  if (!gameHasStarted) {
+    return;
+  }
   var userChosenColor = $(this).attr("id");
   userClickedPattern.push(userChosenColor);
   console.log(userClickedPattern);
   animatePress(userChosenColor);
   playSound(userChosenColor);
+
+  // check if we match the pattern
+  checkAnswer(userClickedPattern.length - 1);
 });
+
+function checkAnswer(currentLevel) {
+  if (userClickedPattern[currentLevel] != gamePattern[currentLevel]) {
+    console.log("wrong");
+  } else {
+    console.log("right");
+    // correctly matched sequence. add new pattern
+    if (currentLevel == gamePattern.length - 1) {
+      setTimeout(function () {
+        nextSequence();
+      }, 1000);
+    }
+  }
+}
