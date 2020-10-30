@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500&display=swap");
+
+body {
+  background-color: white;
+  font-family: "Noto Serif TC", serif;
+}
+
+.container {
+  width: 640px;
+  margin: 100px auto;
+  background-color: white;
+  border: 1px solid #3797a4;
+  border-radius: 8px;
+  box-shadow: 0px 12px 24px 0px rgba(0, 0, 0, 0.1);
+  padding: 0px;
+  overflow: hidden;
+}
+
+.header {
+  background-color: #fcf876;
+  margin: 0px;
+  padding: 10px;
+  border-bottom: 1px solid black;
+}
+
+.header h1 {
+  margin: 0px;
+  letter-spacing: 1rem;
+}
+
+.main-image {
+  height: 400px;
+  background-image: url("images/hero.JPG");
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+.main-text {
+  height: 360px;
+  width: 240px;
+  text-align: left;
+  padding: 20px;
+  color: black;
+  background-color: white;
+  border: 1px dashed black;
+}
