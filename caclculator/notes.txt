@@ -1,0 +1,11 @@
+http error codes
+----------------
+
+1** Hold On
+2** Here you go
+3** Go away (security)
+4** You screwed up
+5** I screwed up
+
+// need the body-parser
+npm install body-parser
