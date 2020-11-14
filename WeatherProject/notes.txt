@@ -1,0 +1,4 @@
+// using json
+
+JSON.parse(data);
+JSON.stringify(object);
