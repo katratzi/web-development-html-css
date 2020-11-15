@@ -13,6 +13,14 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/signup.html");
 });
 
+app.post("/", function (req, res) {
+  // get the data
+  const firstName = req.body.firstName;
+  const lastName = req.body.lastName;
+  const email = req.body.email;
+  console.log(`Name is ${firstName} ${lastName} and ${email}`);
+});
+
 app.listen(3000, function () {
   console.log("Server started on port 3000");
 });
