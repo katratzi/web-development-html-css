@@ -5,6 +5,8 @@ const https = require("https");
 const { json } = require("body-parser");
 const app = express();
 
+const secrets = require("./secrets.js");
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // in order to serve up static files, need to set up express with a particular folder
@@ -12,6 +14,7 @@ app.use(express.static("public"));
 
 app.get("/", function (req, res) {
   //   res.send("Hello world");
+  console.log(secrets.PI);
   res.sendFile(__dirname + "/signup.html");
 });
 
