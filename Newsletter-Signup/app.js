@@ -70,7 +70,8 @@ app.post("/", function (req, res) {
   request.end();
 });
 
-app.listen(3000, function () {
+// for running on heroku, use their port OR use 3000 for local
+app.listen(process.env.PORT || 3000, function () {
   console.log("Server started on port 3000");
 });
 
