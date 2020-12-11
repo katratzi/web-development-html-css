@@ -44,12 +44,20 @@ app.post("/", function (req, res) {
   const url = "https://us7.api.mailchimp.com/3.0/lists/c7d2e88aeb";
   const options = {
     method: "POST",
-    auth: "helloworld:882f4a160ac0a42a81f66445ae4cbd35-us7",
+    auth: `helloworld:${secrets.MAILCHIMPKEY}`,
   };
 
+  // sent the request to mailchimp then check the status code
   const request = https.request(url, options, function (response) {
     response.on("data", function (data) {
-      console.log(JSON.parse(data));
+      if (response.statusCode === 200) {
+        res.send("Successfully subscribed!");
+      }
+      else {
+        res.send("Something went wrong." + response.statusCode);
+      }
+      const parsedData = JSON.parse(data);
+      // console.log(JSON.parse(data));
     });
     console.log("hello");
   });
