@@ -18,6 +18,10 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + "/signup.html");
 });
 
+app.post("/failure", function (req, res) {
+  res.redirect("/");
+});
+
 app.post("/", function (req, res) {
   // get the data
   const firstName = req.body.firstName;
