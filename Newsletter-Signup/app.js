@@ -51,10 +51,10 @@ app.post("/", function (req, res) {
   const request = https.request(url, options, function (response) {
     response.on("data", function (data) {
       if (response.statusCode === 200) {
-        res.send("Successfully subscribed!");
+        res.sendFile(__dirname + "/success.html");
       }
       else {
-        res.send("Something went wrong." + response.statusCode);
+        res.sendFile(__dirname + "/failure.html");
       }
       const parsedData = JSON.parse(data);
       // console.log(JSON.parse(data));
