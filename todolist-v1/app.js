@@ -3,13 +3,21 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+// setup body parser and a public directory
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
+
 app.get("/", function (req, res) {
     var today = new Date();
     if (today.getDay() === 6 || today.getDay() === 0) {
-        res.send("Yay! It's the weekend");
+        res.write("<h1>Yay! It's the weekend</h1>");
+        res.send();
     }
     else {
-        res.send("Oh dear :( work today");
+        // write html sequentially then send
+        res.write("<h1>It is not the weekend</h1>")
+        res.write("<p>Oh dear :( work today</p>");
+        res.send();
     }
 });
 
