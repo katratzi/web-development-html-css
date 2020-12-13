@@ -1,0 +1,16 @@
+Scope
+
+created OUTSIDE a function
+var - global
+let - global
+const - global
+
+created INSIDE a function
+var - local
+let - local
+const - local
+
+created INSIDE a conditional loop or something e.g. if() { here }
+var - global
+let - local
+const - local
