@@ -11,6 +11,7 @@ app.use(express.static("public"));
 
 // empty array of todo items
 let items = ["Buy food", "Cook Food", "Eat food"];
+let workItems = [];
 
 app.get("/", function (req, res) {
     let today = new Date();
@@ -18,13 +19,25 @@ app.get("/", function (req, res) {
 
     let day = today.toLocaleDateString("en-US", options);
 
-    res.render("list", { kindOfDay: day, newListItems: items });
+    res.render("list", { listTitle: day, newListItems: items });
 });
 
 app.post("/", function (req, res) {
     let item = req.body.newItem;
     items.push(item);
     res.redirect("/");
+});
+
+
+// access as localhost:3000/work
+app.get("/work", function (req, res) {
+    res.render("list", { listTitle: "Homework", newListItems: workItems });
+});
+
+app.post("/work", function (req, res) {
+    let item = req.body.newItem;
+    workItems.push(item);
+    res.redirect("/work");
 });
 
 app.listen(3000, function () {
