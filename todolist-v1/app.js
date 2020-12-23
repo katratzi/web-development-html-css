@@ -1,5 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const date = require(__dirname + "/date.js");
+
+// with date exported as a function
+// it only runs with the parenthesis ()
+// first one fill print the name of the function
+// second will print the actualt date string we want
+console.log(date);
+console.log(date());
 
 const app = express();
 
@@ -14,11 +22,8 @@ let items = ["Buy food", "Cook Food", "Eat food"];
 let workItems = [];
 
 app.get("/", function (req, res) {
-    let today = new Date();
-    let options = { weekday: 'long', day: 'numeric', month: 'long', };
 
-    let day = today.toLocaleDateString("en-US", options);
-
+    let day = date();
     res.render("list", { listTitle: day, newListItems: items });
 });
 
