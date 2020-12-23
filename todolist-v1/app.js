@@ -6,8 +6,8 @@ const date = require(__dirname + "/date.js");
 // it only runs with the parenthesis ()
 // first one fill print the name of the function
 // second will print the actualt date string we want
-console.log(date);
-console.log(date());
+// console.log(date);
+// console.log(date());
 
 const app = express();
 
@@ -23,7 +23,10 @@ let workItems = [];
 
 app.get("/", function (req, res) {
 
-    let day = date();
+    // can get the full date or just the day using our date module
+    // let day = date.getDay();
+    let day = date.getDate();
+
     res.render("list", { listTitle: day, newListItems: items });
 });
 
