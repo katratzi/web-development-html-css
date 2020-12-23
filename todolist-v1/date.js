@@ -8,32 +8,30 @@
 // module.exports = getDate;
 
 // export an object with two functions
-module.exports.getDate = getDate;
-module.exports.getDay = getDay;
-console.log(exports.module);
+// module.exports.getDate = getDate;
+// module.exports.getDay = getDay;
+// console.log(exports.module);
 
-function getDate() {
-    let today = new Date();
+// here we bind the anonymous function to our exported object
+// exports is short for module.exports
+exports.getDate = function () {
+    const today = new Date();
 
-    let options = {
+    const options = {
         weekday: 'long',
         day: 'numeric',
         month: 'long',
     };
 
-    let day = today.toLocaleDateString("en-US", options);
-
-    return day;
+    return today.toLocaleDateString("en-US", options);
 }
 
-function getDay() {
-    let today = new Date();
+exports.getDay = function () {
+    const today = new Date();
 
-    let options = {
+    const options = {
         weekday: 'long',
     };
 
-    let day = today.toLocaleDateString("en-US", options);
-
-    return day;
+    return today.toLocaleDateString("en-US", options);
 }

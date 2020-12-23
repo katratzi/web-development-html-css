@@ -18,8 +18,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // empty array of todo items
-let items = ["Buy food", "Cook Food", "Eat food"];
-let workItems = [];
+const items = ["Buy food", "Cook Food", "Eat food"];
+const workItems = [];
 
 app.get("/", function (req, res) {
 
