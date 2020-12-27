@@ -8,17 +8,15 @@
 
     <!-- log to check and show our blog posts -->
     <% console.log(blogPosts); %>
-        <ul>
-            <!-- foreach instead of for -->
-            <% blogPosts.forEach(function(post) { console.log(post.title);}) %>
-                <% for(var i=0; i< blogPosts.length; i++) {%>
-                    <h2>
-                        <%= blogPosts[i].title %>
-                    </h2>
-                    <p>
-                        <%= blogPosts[i].content %>
-                    </p>
-                    <% } %>
-        </ul>
 
-        <%- include('partials/footer'); -%>
+        <!-- foreach instead of for -->
+        <% blogPosts.forEach(function(post) { %>
+            <h1>
+                <%= post.title %>
+            </h1>
+            <p>
+                <%= post.content %>
+            </p>
+            <% }) %>
+
+                <%- include('partials/footer'); -%>
