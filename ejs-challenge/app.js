@@ -60,12 +60,16 @@ app.get('/posts/:postName', function (req, res) {
     const storedTitle = lodash.lowerCase(post.title);
     if (storedTitle === requestedTitle) {
       console.log("Match Found");
+      res.render('post', {
+        blogTitle: post.title,
+        blogContent: post.content
+      });
     }
     else {
       console.log("Not a match");
     }
-    res.redirect('/');
   });
+
 });
 
 
