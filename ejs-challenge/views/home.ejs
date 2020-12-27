@@ -19,6 +19,7 @@
                 <% let summary=post.content.substring(0,100); %>
                     <% summary +=" ..." %>
                         <%= summary %>
+                            <a href="/posts/<%= post.title %>"> read more</a>
             </p>
             <% }) %>
 
