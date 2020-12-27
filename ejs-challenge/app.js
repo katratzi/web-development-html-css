@@ -51,7 +51,14 @@ app.post('/compose', function (req, res) {
 
 // express routing parameters with dynamic url
 app.get('/posts/:postName', function (req, res) {
+  const requestedTitle = req.params.postName;
   console.log(req.params.postName);
+
+  posts.forEach(function (post) {
+    if (post.title === requestedTitle) {
+      console.log("Match Found");
+    }
+  });
   res.redirect('/');
 })
 
