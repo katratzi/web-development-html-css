@@ -38,6 +38,7 @@ app.get('/compose', function (req, res) {
   res.render('compose');
 })
 
+
 app.post('/compose', function (req, res) {
   const blogPost = {
     title: req.body.blogTitle,
@@ -48,6 +49,11 @@ app.post('/compose', function (req, res) {
 });
 
 
+// express routing parameters with dynamic url
+app.get('/posts/:postName', function (req, res) {
+  console.log(req.params.postName);
+  res.redirect('/');
+})
 
 
 
