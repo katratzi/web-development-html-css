@@ -15,7 +15,10 @@
                 <%= post.title %>
             </h1>
             <p>
-                <%= post.content %>
+                <!-- have a max length of 100 - we'll add an ellipsis after -->
+                <% let summary=post.content.substring(0,100); %>
+                    <% summary +=" ..." %>
+                        <%= summary %>
             </p>
             <% }) %>
 
