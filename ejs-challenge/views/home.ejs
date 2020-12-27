@@ -6,4 +6,17 @@
         <%= startingContent %>
     </p>
 
-    <%- include('partials/footer'); -%>
+    <!-- log to check and show our blog posts -->
+    <% console.log(blogPosts); %>
+        <ul>
+            <% for(var i=0; i< blogPosts.length; i++) {%>
+                <h2>
+                    <%= blogPosts[i].title %>
+                </h2>
+                <p>
+                    <%= blogPosts[i].content %>
+                </p>
+                <% } %>
+        </ul>
+
+        <%- include('partials/footer'); -%>
