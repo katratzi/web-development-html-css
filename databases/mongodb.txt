@@ -1,0 +1,24 @@
+installation
+------------
+
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x-tarball/
+could use brew, for simplicity download the community edition
+
+extract and move it to...
+sudo mv 'drag in extracted folder' /usr/local/mongodb
+
+// needed to add the path to my .zshrc in 
+
+// make data dir (can't use data/db anymore)
+sudo mkdir -p /usr/local/var/mongodb 
+
+// create log dir
+sudo mkdir -p /usr/local/var/log/mongodb
+
+// if i need to make sure i own these dir use
+// username is found with whoami
+sudo chown username /usr/local/var/mongodb 
+
+// start with ?? udemy skips this
+mongod --dbpath /usr/local/var/mongodb --logpath /usr/local/var/log/mongodb/mongo.log --fork
+
