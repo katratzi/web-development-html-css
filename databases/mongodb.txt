@@ -41,6 +41,8 @@ db.products.find({name:"Pencil"}) - query for matching name of Pencil
 db.products.find({price: {$gt: 1}}) - query for all prices greater than 1
 db.products.find({_id: 1}, {name: 1}) - id matches 1, but only give me the name fields  (the 1 after is true, 0 false)
 db.products.find({_id: 1}, {name: 1, _id: 0})
+db.products.updateOne({_id: 1}, {$set: {stock: 32}}) - update, the query is match with the id = 1.  and set is give new field with value 32
+db.products.updateOne({_id: 2}, {$set: {stock: 12}}) - same for second record
 
 
 
