@@ -8,6 +8,10 @@ extract and move it to...
 sudo mv 'drag in extracted folder' /usr/local/mongodb
 
 // needed to add the path to my .zshrc in 
+// ls -a to see all
+// .zshrc mine now looks like this
+export PATH=$PATH:~/Developer/flutter/bin
+export PATH=$PATH:/usr/local/mongodb/bin
 
 // make data dir (can't use data/db anymore)
 sudo mkdir -p /usr/local/var/mongodb 
@@ -21,4 +25,17 @@ sudo chown username /usr/local/var/mongodb
 
 // start with ?? udemy skips this
 mongod --dbpath /usr/local/var/mongodb --logpath /usr/local/var/log/mongodb/mongo.log --fork
+
+// then in another terminal run...  :)
+mongo
+
+// commands
+show dbs  - show all databases
+use shopDB - create a database
+db - which one I'm on
+db.products.insertOne({_id:1, name: "Pen", price: 1.20 }) - create
+show collections
+db.products.insertOne ({_id: 2, name: "Pencil", price: 0.80})
+
+
 
