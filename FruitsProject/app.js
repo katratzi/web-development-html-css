@@ -21,4 +21,20 @@ const fruit = new Fruit({
 
 // this then creates it into the collection
 // replaces the insert documents stuff in the native driver
-fruit.save();
+// fruit.save();
+
+// create a person schema
+const personSchema = new mongoose.Schema({
+    name: String,
+    age: Number
+});
+
+// the model of a person
+const Person = mongoose.model("Person", personSchema);
+
+const person = new Person({
+    name: "John",
+    age: 37
+});
+
+person.save();
