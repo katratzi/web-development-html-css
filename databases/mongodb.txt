@@ -29,6 +29,14 @@ mongod --dbpath /usr/local/var/mongodb --logpath /usr/local/var/log/mongodb/mong
 // then in another terminal run...  :)
 mongo
 
+// if you need to shutdown mongod if you forgot to ctrl-c
+sudo pkill -f mongod
+
+// to delete a database...from the mongo shell
+// switch to the database
+use fruitsDB
+db.dropDatabase()
+
 // commands
 show dbs  - show all databases
 use shopDB - create a database
