@@ -3,8 +3,16 @@ const mongoose = require('mongoose');
 mongoose.connect("mongodb://localhost:27017/fruitsDB", { useNewUrlParser: true, useUnifiedTopology: true });
 
 const fruitSchema = new mongoose.Schema({
-    name: String,
-    rating: Number,
+    name:
+    {
+        type: String,
+        required: [true, 'Please check...all fruits need a name']
+    },
+    rating: {
+        type: Number,
+        min: 1,
+        max: 10
+    },
     review: String
 });
 
@@ -14,14 +22,14 @@ const Fruit = mongoose.model("Fruit", fruitSchema);
 
 // now create the object
 const fruit = new Fruit({
-    name: "Apple",
-    rating: 7,
-    review: "Pretty solid as a fruit."
+    name: "Peaches",
+    rating: 8,
+    review: "Pretty are delicious."
 });
 
 // this then creates it into the collection
 // replaces the insert documents stuff in the native driver
-// fruit.save();
+fruit.save();
 
 // create a person schema
 const personSchema = new mongoose.Schema({
@@ -39,23 +47,23 @@ const person = new Person({
 
 // person.save();
 
-const kiwi = new Fruit({
-    name: "Kiwi",
-    rating: 3,
-    review: "Kind of furry"
-});
+// const kiwi = new Fruit({
+//     name: "Kiwi",
+//     rating: 3,
+//     review: "Kind of furry"
+// });
 
-const orange = new Fruit({
-    name: "Orange",
-    rating: 6,
-    review: "Juicy but messy"
-});
+// const orange = new Fruit({
+//     name: "Orange",
+//     rating: 6,
+//     review: "Juicy but messy"
+// });
 
-const banana = new Fruit({
-    name: "Banananananana",
-    rating: 8,
-    review: "Lots of energy"
-});
+// const banana = new Fruit({
+//     name: "Banananananana",
+//     rating: 8,
+//     review: "Lots of energy"
+// });
 
 // Fruit.insertMany([kiwi, orange, banana], function (err) {
 //     if (err) {
@@ -71,7 +79,7 @@ Fruit.find(function (err, fruits) {
         console.log(err);
     }
     else {
-        console.log(fruits);
+        // console.log(fruits);
         fruits.forEach(function (fruit) {
             console.log(fruit.name);
         })
