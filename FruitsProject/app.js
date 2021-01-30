@@ -22,14 +22,14 @@ const Fruit = mongoose.model("Fruit", fruitSchema);
 
 // now create the object
 const fruit = new Fruit({
-    name: "Peaches",
+    name: "Peachey",
     rating: 8,
     review: "Pretty are delicious."
 });
 
 // this then creates it into the collection
 // replaces the insert documents stuff in the native driver
-fruit.save();
+// fruit.save();
 
 // create a person schema
 const personSchema = new mongoose.Schema({
@@ -79,7 +79,7 @@ Fruit.find(function (err, fruits) {
         console.log(err);
     }
     else {
-        // console.log(fruits);
+        console.log(fruits);
         fruits.forEach(function (fruit) {
             console.log(fruit.name);
         })
@@ -88,3 +88,14 @@ Fruit.find(function (err, fruits) {
     // close the connection
     mongoose.connection.close();
 });
+
+// update a record
+// first part is the filter, second what we want to update
+Fruit.updateOne({ _id: "6015a1867cb2bc0f105ee978" }, { name: "Peach" }, function (err) {
+    if (err) {
+        console.log(err);
+    }
+    else {
+        console.log("Successfully updated fruit name");
+    }
+})
