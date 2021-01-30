@@ -21,31 +21,33 @@ const fruitSchema = new mongoose.Schema({
 const Fruit = mongoose.model("Fruit", fruitSchema);
 
 // now create the object
-const fruit = new Fruit({
-    name: "Peachey",
-    rating: 8,
-    review: "Pretty are delicious."
+const grapefruit = new Fruit({
+    name: "Grapefruit",
+    rating: 10,
+    review: "Tangy juicy fruit"
 });
 
 // this then creates it into the collection
 // replaces the insert documents stuff in the native driver
-// fruit.save();
+grapefruit.save();
 
 // create a person schema
 const personSchema = new mongoose.Schema({
     name: String,
-    age: Number
+    age: Number,
+    favouriteFruit: fruitSchema,
 });
 
 // the model of a person
 const Person = mongoose.model("Person", personSchema);
 
 const person = new Person({
-    name: "John",
-    age: 37
+    name: "Amy",
+    age: 18,
+    favouriteFruit: grapefruit,
 });
 
-// person.save();
+person.save();
 
 // const kiwi = new Fruit({
 //     name: "Kiwi",
