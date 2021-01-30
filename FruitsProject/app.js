@@ -91,11 +91,23 @@ Fruit.find(function (err, fruits) {
 
 // update a record
 // first part is the filter, second what we want to update
-Fruit.updateOne({ _id: "6015a1867cb2bc0f105ee978" }, { name: "Peach" }, function (err) {
+// Fruit.updateOne({ _id: "6015a1867cb2bc0f105ee978" }, { name: "Peach" }, function (err) {
+//     if (err) {
+//         console.log(err);
+//     }
+//     else {
+//         console.log("Successfully updated fruit name");
+//     }
+// });
+
+// delete works similarly
+// can find with name or id or anything
+// Fruit.deleteOne({ name: "Peach" }, function (err) {
+Fruit.deleteOne({ _id: "6015a1867cb2bc0f105ee978" }, function (err) {
     if (err) {
         console.log(err);
     }
     else {
-        console.log("Successfully updated fruit name");
+        console.log("Successfully deleted fruit");
     }
-})
+});
