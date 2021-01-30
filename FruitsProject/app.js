@@ -103,11 +103,21 @@ Fruit.find(function (err, fruits) {
 // delete works similarly
 // can find with name or id or anything
 // Fruit.deleteOne({ name: "Peach" }, function (err) {
-Fruit.deleteOne({ _id: "6015a1867cb2bc0f105ee978" }, function (err) {
+// Fruit.deleteOne({ _id: "6015a1867cb2bc0f105ee978" }, function (err) {
+//     if (err) {
+//         console.log(err);
+//     }
+//     else {
+//         console.log("Successfully deleted fruit");
+//     }
+// });
+
+// delete manu
+Person.deleteMany({ name: "John" }, function (err) {
     if (err) {
         console.log(err);
     }
     else {
-        console.log("Successfully deleted fruit");
+        console.log("Successfully killed Johns");
     }
 });
