@@ -1,0 +1,85 @@
+<!-- https://coursetro.com/posts/code/163/Create-an-Awesome-Scroll-based-HTML5-Video-Explainer -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="container">
+        <div class="content">
+            <h1>Scroll to Begin</h1>
+            <p>Start it like this...</p>
+        </div>
+    </section>
+    <section class="container">
+        <div class="content">
+            <h1>alpha</h1>
+            <p>Step 1</p>
+        </div>
+    </section>
+    <section class="container">
+        <div class="content">
+            <h1>bravo</h1>
+            <p>Step 2</p>
+        </div>
+    </section>
+    <section class="container">
+        <div class="content">
+            <h1>charlie</h1>
+            <p>Step 3</p>
+        </div>
+    </section>
+    <div id="set-height"></div>
+    <video id="v0" tabindex="0" autobuffer preload>
+        <!-- <source src="mass effect 2 trailer.mp4" type="video/mp4">> -->
+        <source src="fog of war - empire strikes out.mp4" type="video/mp4">>
+        </source>
+    </video>
+    <script src="sticky.js"></script>
+    <script>
+        var frameNumber = 0; // start video at frame 0
+        // lower numbers = faster playback
+        var playbackConst = 200; // Set to 1000 to make the playback slower
+        // get page height from video duration
+        var setHeight = document.getElementById("set-height")
+        // select video element         
+        var vid = document.getElementById('v0');
+        console.log(vid);
+
+        enterView({
+            selector: "section",
+            enter: function (el) {
+                el.classList.add("entered");
+            }
+        });
+
+        // dynamically set the page height according to video length
+        vid.addEventListener('loadedmetadata', function () {
+            setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
+        });
+
+        // Use requestAnimationFrame for smooth playback
+        function scrollPlay() {
+            var frameNumberCalc = window.pageYOffset / playbackConst;
+            frameNumberCalc = Math.round(frameNumberCalc * 10) / 10;
+            if (frameNumber != frameNumberCalc) {
+
+                vid.currentTime = frameNumberCalc;
+                frameNumber = frameNumberCalc;
+                // console.log(frameNumber);
+            }
+            window.requestAnimationFrame(scrollPlay);
+        }
+
+        window.requestAnimationFrame(scrollPlay);
+    </script>
+</body>
+
+</html>
