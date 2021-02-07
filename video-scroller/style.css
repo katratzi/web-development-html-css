@@ -59,7 +59,7 @@ section:nth-of-type(4) {
 section:nth-of-type(5) {
     height: 1000px;
 }
-/* .entered {
+.entered {
 	-webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
 }
@@ -87,4 +87,4 @@ section:nth-of-type(5) {
                 filter: blur(0px);
         opacity: 1;
     }
-} */
+}

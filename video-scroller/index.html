@@ -43,13 +43,13 @@
         </div>
     </section>
     <div id="set-height"></div>
-    <video id="v0" tabindex="0" autobuffer preload controls>
+    <video id="v0" tabindex="0" autobuffer preload>
         <!-- <source src="mass effect 2 trailer.mp4" type="video/mp4">> -->
         <!-- <source src="fog of war - empire strikes out.mp4" type="video/mp4"> -->
         <source src="fingers.mp4" type="video/mp4">
         </source>
     </video>
-    <!-- <script src="sticky.js"></script> -->
+    <script src="sticky.js"></script>
     <script>
 
         var frameNumber = 0; // start video at frame 0
@@ -61,13 +61,13 @@
         var vid = document.getElementById('v0');
         console.log(vid);
 
-        // enterView({
-        //     selector: "section",
-        //     enter: function (el) {
-        //         el.classList.add("entered");
+        enterView({
+            selector: "section",
+            enter: function (el) {
+                el.classList.add("entered");
 
-        //     }
-        // });
+            }
+        });
 
         // dynamically set the page height according to video length
         vid.addEventListener('loadedmetadata', function () {
