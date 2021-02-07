@@ -26,11 +26,6 @@ const item3 = new Item({ name: "Take over the world" });
 
 const defaultItems = [item1, item2, item3];
 
-
-
-
-
-
 app.get("/", function (req, res) {
 
   // check what's in our items collection
@@ -43,10 +38,10 @@ app.get("/", function (req, res) {
         }
         else {
           console.log("Success, default items saved to DB");
+          // done inserting...redirect to home again
+          res.redirect("/");
         }
       });
-      // done inserting...redirect to home again
-      res.redirect("/");
     }
     else {
       // render the page of items please
