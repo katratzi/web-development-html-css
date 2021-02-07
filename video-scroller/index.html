@@ -20,62 +20,88 @@
     </section>
     <section class="container">
         <div class="content">
-            <h1>alpha</h1>
+            <h1>One</h1>
             <p>Step 1</p>
         </div>
     </section>
     <section class="container">
         <div class="content">
-            <h1>bravo</h1>
+            <h1>Two</h1>
             <p>Step 2</p>
         </div>
     </section>
     <section class="container">
         <div class="content">
-            <h1>charlie</h1>
+            <h1>Three</h1>
             <p>Step 3</p>
         </div>
     </section>
+    <section class="container">
+        <div class="content">
+            <h1>Four</h1>
+            <p>Step 4</p>
+        </div>
+    </section>
     <div id="set-height"></div>
-    <video id="v0" tabindex="0" autobuffer preload>
+    <video id="v0" tabindex="0" autobuffer preload controls>
         <!-- <source src="mass effect 2 trailer.mp4" type="video/mp4">> -->
-        <source src="fog of war - empire strikes out.mp4" type="video/mp4">>
+        <!-- <source src="fog of war - empire strikes out.mp4" type="video/mp4"> -->
+        <source src="fingers.mp4" type="video/mp4">
         </source>
     </video>
-    <script src="sticky.js"></script>
+    <!-- <script src="sticky.js"></script> -->
     <script>
+
         var frameNumber = 0; // start video at frame 0
         // lower numbers = faster playback
-        var playbackConst = 200; // Set to 1000 to make the playback slower
+        var playbackConst = 1000; // Set to 1000 to make the playback slower
         // get page height from video duration
         var setHeight = document.getElementById("set-height")
         // select video element         
         var vid = document.getElementById('v0');
         console.log(vid);
 
-        enterView({
-            selector: "section",
-            enter: function (el) {
-                el.classList.add("entered");
-            }
-        });
+        // enterView({
+        //     selector: "section",
+        //     enter: function (el) {
+        //         el.classList.add("entered");
+
+        //     }
+        // });
 
         // dynamically set the page height according to video length
         vid.addEventListener('loadedmetadata', function () {
+            // console.log(vid.duration * playbackConst);
             setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
         });
 
         // Use requestAnimationFrame for smooth playback
         function scrollPlay() {
+
             var frameNumberCalc = window.pageYOffset / playbackConst;
+            // console.log(window.pageYOffset);
             frameNumberCalc = Math.round(frameNumberCalc * 10) / 10;
             if (frameNumber != frameNumberCalc) {
-
+                // playVideoToTimeStep(frameNumberCalc);
                 vid.currentTime = frameNumberCalc;
                 frameNumber = frameNumberCalc;
                 // console.log(frameNumber);
             }
             window.requestAnimationFrame(scrollPlay);
+        }
+
+        // this does not work
+        function playVideoToTimeStep(desiredTime) {
+
+            vid.play();
+            if (vid.currentTime > desiredTime) {
+                vid.playbackRate = -1;
+                console.log("play reverse");
+            }
+            else {
+                vid.playbackRate = 1;
+                console.log("play forward");
+            }
         }
 
         window.requestAnimationFrame(scrollPlay);
