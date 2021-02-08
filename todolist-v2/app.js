@@ -60,9 +60,24 @@ app.post("/", function (req, res) {
 
   // save to db, shortcut method instead of insert
   item.save();
-
   res.redirect("/");
+});
 
+// delete post request from checkbox
+app.post("/delete", function (req, res) {
+
+  const checkedItemId = req.body.checkbox;
+  console.log(req.body.checkbox);
+  Item.deleteOne({ _id: checkedItemId }, function (err, res) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      console.log("Deleted _id." + checkedItemId);
+    }
+
+  })
+  res.redirect("/");
 });
 
 app.get("/work", function (req, res) {
