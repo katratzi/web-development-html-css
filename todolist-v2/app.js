@@ -26,6 +26,14 @@ const item3 = new Item({ name: "Take over the world" });
 
 const defaultItems = [item1, item2, item3];
 
+const listSchema = {
+  name: String,
+  items: [itemsSchema]
+}
+
+const List = mongoose.model("List", listSchema);
+
+// home route
 app.get("/", function (req, res) {
 
   // check what's in our items collection
@@ -51,6 +59,7 @@ app.get("/", function (req, res) {
 
 });
 
+// post to home route
 app.post("/", function (req, res) {
 
   const itemName = req.body.newItem;
@@ -75,9 +84,17 @@ app.post("/delete", function (req, res) {
   res.redirect("/");
 });
 
+// if we get custom list name from the routed paramater
 app.get("/:customListName", function (req, res) {
   const customListName = req.params.customListName;
-  console.log(customListName);
+
+  const list = new List({
+    name: customListName,
+    items: defaultItems,
+  });
+
+  list.save();
+
   res.redirect("/");
 });
 
