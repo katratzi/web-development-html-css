@@ -75,9 +75,15 @@ app.post("/delete", function (req, res) {
   res.redirect("/");
 });
 
-app.get("/work", function (req, res) {
-  res.render("list", { listTitle: "Work List", newListItems: workItems });
+app.get("/:customListName", function (req, res) {
+  const customListName = req.params.customListName;
+  console.log(customListName);
+  res.redirect("/");
 });
+
+// app.get("/work", function (req, res) {
+//   res.render("list", { listTitle: "Work List", newListItems: workItems });
+// });
 
 app.get("/about", function (req, res) {
   res.render("about");
