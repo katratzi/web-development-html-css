@@ -98,18 +98,20 @@ app.get("/:customListName", function (req, res) {
           name: customListName,
           items: defaultItems,
         });
-        // save to db
+        // save to db 
         list.save();
+        // redirect to our customlist name again
+        res.redirect("/" + customListName);
       }
       else {
         // log it exists
         console.log(customListName + " exists");
         // Show an existing list
+        res.render("list", { listTitle: foundList.name, newListItems: foundList.items })
       }
     }
   });
 
-  res.redirect("/");
 });
 
 // app.get("/work", function (req, res) {
