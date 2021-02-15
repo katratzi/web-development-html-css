@@ -88,20 +88,24 @@ app.post("/delete", function (req, res) {
 app.get("/:customListName", function (req, res) {
   const customListName = req.params.customListName;
 
-  List.find({ name: customListName }, function (err, foundLists) {
+  List.findOne({ name: customListName }, function (err, foundList) {
     // if empty create a new list and add default items
-    if (foundLists.length === 0) {
-      console.log('none found');
-      const list = new List({
-        name: customListName,
-        items: defaultItems,
-      });
-      // save to db
-      list.save();
-    }
-    else {
-      // log it exists
-      console.log(customListName + " exists");
+    if (!err) {
+      if (!foundList) {
+        // create a new list
+        console.log('Doesnt exist');
+        const list = new List({
+          name: customListName,
+          items: defaultItems,
+        });
+        // save to db
+        list.save();
+      }
+      else {
+        // log it exists
+        console.log(customListName + " exists");
+        // Show an existing list
+      }
     }
   });
 
