@@ -88,12 +88,22 @@ app.post("/delete", function (req, res) {
 app.get("/:customListName", function (req, res) {
   const customListName = req.params.customListName;
 
-  const list = new List({
-    name: customListName,
-    items: defaultItems,
+  List.find({ name: customListName }, function (err, foundLists) {
+    // if empty create a new list and add default items
+    if (foundLists.length === 0) {
+      console.log('none found');
+      const list = new List({
+        name: customListName,
+        items: defaultItems,
+      });
+      // save to db
+      list.save();
+    }
+    else {
+      // log it exists
+      console.log(customListName + " exists");
+    }
   });
-
-  list.save();
 
   res.redirect("/");
 });
