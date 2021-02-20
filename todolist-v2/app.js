@@ -63,13 +63,25 @@ app.get("/", function (req, res) {
 app.post("/", function (req, res) {
 
   const itemName = req.body.newItem;
+  const listName = req.body.list;
+
   const item = new Item({
     name: itemName
   });
 
-  // save to db, shortcut method instead of insert
-  item.save();
-  res.redirect("/");
+  // normal home page
+  if (listName === "Today") {
+    // save to db, shortcut method instead of insert
+    item.save();
+    res.redirect("/");
+  } else {
+    // look for the list, and push new item into array
+    List.findOne({ name: listName }, function (err, foundList) {
+      foundList.items.push(item);
+      foundList.save();
+      res.redirect("/" + listName);
+    });
+  }
 });
 
 // delete post request from checkbox
