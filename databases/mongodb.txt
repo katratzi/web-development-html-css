@@ -37,6 +37,9 @@ sudo pkill -f mongod
 use fruitsDB
 db.dropDatabase()
 
+// drop a collection from a db
+db.lists.drop()
+
 // commands
 show dbs  - show all databases
 use shopDB - create a database
