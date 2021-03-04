@@ -88,12 +88,32 @@ app.post("/", function (req, res) {
 app.post("/delete", function (req, res) {
 
   const checkedItemId = req.body.checkbox;
-  Item.findByIdAndDelete(checkedItemId, function (err) {
-    if (!err) {
-      console.log(`Successfully deleted _id ${checkedItemId}`);
-    }
-  });
-  res.redirect("/");
+  const listName = req.body.listName;
+
+  // delete from our default list
+  if (listName === "Today") {
+    Item.findByIdAndDelete(checkedItemId, function (err) {
+      if (!err) {
+        console.log(`Successfully deleted _id ${checkedItemId}`);
+      }
+    });
+    res.redirect("/");
+  }
+  else { // else delete form specific list
+    // first argument filter condition
+    // second, what we want to update. {$pull: {field: {query}}} // which item in this array of items
+    // callback from above
+    // List.findOneAndUpdate({condition}, {filter}, funtion(err,res){});
+    List.findOneAndUpdate({ name: listName },
+      { $pull: { items: { _id: checkedItemId } } }, // pull - from items array - that matches this id
+      function (err, foundList) {
+        if (!err) {
+          res.redirect("/" + listName);
+        }
+      });
+  }
+
+
 });
 
 // if we get custom list name from the routed paramater
