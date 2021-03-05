@@ -26,6 +26,9 @@ sudo chown username /usr/local/var/mongodb
 // start with ?? udemy skips this
 mongod --dbpath /usr/local/var/mongodb --logpath /usr/local/var/log/mongodb/mongo.log --fork
 
+// shutdown with Use CTRL-C
+// When running the mongod instance in interactive mode (i.e. without --fork ), issue Control-C to perform a clean shutdown.
+
 // then in another terminal run...  :)
 mongo
 
