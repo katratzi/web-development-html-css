@@ -1,0 +1,26 @@
+<%- include('partials/header'); -%>
+
+    <h1>Home</h1>
+
+    <p>
+        <%= startingContent %>
+    </p>
+
+    <!-- log to check and show our blog posts -->
+    <% console.log(blogPosts); %>
+
+        <!-- foreach instead of for -->
+        <% blogPosts.forEach(function(post) { %>
+            <h1>
+                <%= post.title %>
+            </h1>
+            <p>
+                <!-- have a max length of 100 - we'll add an ellipsis after -->
+                <% let summary=post.content.substring(0,100); %>
+                    <% summary +=" ..." %>
+                        <%= summary %>
+                            <a href="/posts/<%= post.title %>"> read more</a>
+            </p>
+            <% }) %>
+
+                <%- include('partials/footer'); -%>
