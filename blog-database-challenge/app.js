@@ -20,6 +20,18 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
+// connect to the database
+mongoose.connect("mongodb://localhost:27017/blogDB", { useNewUrlParser: true, useUnifiedTopology: true });
+
+const postSchema = new mongoose.Schema({
+  title: String,
+  content: String
+});
+
+const Post = mongoose.model("Post", postSchema);
+
+const blog1 = new Post({ title: "Day 1", content: "Lorem ipsum hello" });
+
 app.get('/', function (req, res) {
   res.render('home', {
     startingContent: homeStartingContent,
@@ -39,12 +51,17 @@ app.get('/compose', function (req, res) {
   res.render('compose');
 })
 
-
+// post to compose, so want to save to db here
 app.post('/compose', function (req, res) {
   const blogPost = {
     title: req.body.blogTitle,
     content: req.body.blogContent,
   };
+
+  const post = new Post({ title: req.body.blogTitle, content: req.body.blogContent });
+  post.save();
+
+
   posts.push(blogPost);
   res.redirect('/');
 });
