@@ -76,26 +76,24 @@ app.post('/compose', function (req, res) {
 
 
 // express routing parameters with dynamic url
-app.get('/posts/:postName', function (req, res) {
+app.get('/posts/:postId', function (req, res) {
 
-  // use lodash to simplify string
-  const requestedTitle = lodash.lowerCase(req.params.postName);
-  console.log(requestedTitle);
-  posts.forEach(function (post) {
-    // lodash again for comparison
-    const storedTitle = lodash.lowerCase(post.title);
-    if (storedTitle === requestedTitle) {
-      console.log("Match Found");
+  // get the postId
+  const requestedId = req.params.postId;
+  console.log(`requestedId.${requestedId}`);
+
+  // get this post info and display it
+  Post.findById(requestedId, function (err, foundPost) {
+    if (!err) {
       res.render('post', {
-        blogTitle: post.title,
-        blogContent: post.content
+        blogTitle: foundPost.title,
+        blogContent: foundPost.content
       });
+    } else {
+      // error - go home
+      res.redirect("/");
     }
-    else {
-      console.log("Not a match");
-    }
-  });
-
+  })
 });
 
 
