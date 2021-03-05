@@ -62,17 +62,16 @@ app.get('/compose', function (req, res) {
 
 // post to compose, so want to save to db here
 app.post('/compose', function (req, res) {
-  const blogPost = {
-    title: req.body.blogTitle,
-    content: req.body.blogContent,
-  };
 
+  // create a new post and save it
   const post = new Post({ title: req.body.blogTitle, content: req.body.blogContent });
-  post.save();
+  // wait for callback before redirecting
+  post.save(function (err) {
+    if (!err) {
+      res.redirect('/');
+    }
+  });
 
-
-  posts.push(blogPost);
-  res.redirect('/');
 });
 
 
