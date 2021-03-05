@@ -32,10 +32,19 @@ const Post = mongoose.model("Post", postSchema);
 
 const blog1 = new Post({ title: "Day 1", content: "Lorem ipsum hello" });
 
+// now show the posts
 app.get('/', function (req, res) {
-  res.render('home', {
-    startingContent: homeStartingContent,
-    blogPosts: posts
+  // get the array of posts from db
+
+  // check what's in our items collection
+  Post.find({}, function (err, foundPosts) {
+    // don't care if empty - just show nothing
+
+    // render the page of posts please      
+    res.render('home', {
+      startingContent: homeStartingContent,
+      blogPosts: foundPosts
+    });
   });
 })
 
