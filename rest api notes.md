@@ -19,3 +19,8 @@ Restful routing - rules
 
 depending on verb you're either getting 
 /articles  /articles/jack-bauer
+
+when you update an article/rest with a PUT request, 
+if you don't supply all the values you loose some of the original values, 
+you replace them with what's supplied. Note mongoose overrides the specific 
+mongo behaviour for this. 
