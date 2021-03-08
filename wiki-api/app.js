@@ -25,6 +25,7 @@ app.get("/", function (req, res) {
     res.send('Hello World!');
 });
 
+// GET
 app.get("/articles", function (req, res) {
     Article.find(function (err, foundArticles) {
         if (!err) {
@@ -32,6 +33,25 @@ app.get("/articles", function (req, res) {
         }
         else {
             res.send(err);
+        }
+    });
+});
+
+// POST
+app.post("/articles", function (req, res) {
+
+    // create a new article
+    const article = new Article({
+        title: req.body.title,
+        content: req.body.content,
+    });
+
+    // save and send response
+    article.save(function (err) {
+        if (!err) {
+            res.send("Successfully added a new article"); // send success
+        } else {
+            res.send(err); // send back the error
         }
     });
 });
