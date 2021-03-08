@@ -25,6 +25,8 @@ app.get("/", function (req, res) {
     res.send('Hello World!');
 });
 
+//////// Requests targeting ALL routes /////////
+
 // chained route handling
 app.route("/articles")
     .get(function (req, res) {
@@ -64,6 +66,25 @@ app.route("/articles")
             }
         });
     });
+
+//////// requests targeting a SPECIFIC route /////////
+
+// chained route handling
+app.route("/articles/:articleTitle")
+    .get(function (req, res) {
+        const articleTitle = req.params.articleTitle;
+        Article.findOne({ title: articleTitle }, function (err, foundArticle) {
+            if (foundArticle) {
+                res.send(foundArticle);
+            }
+            else {
+                res.send("No articles matching that title found.");
+            }
+        });
+    })
+    .post()
+    .delete();
+
 
 // start up the server up
 app.listen(3000, function () {
