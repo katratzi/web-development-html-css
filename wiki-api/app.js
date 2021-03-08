@@ -92,9 +92,25 @@ app.route("/articles/:articleTitle")
                 else { res.send("Failed to update article"); }
             });
     })
+    .patch(function (req, res) {
+        Article.update(
+            { title: req.params.articleTitle },
+            { $set: req.body }, // see note            
+            function (err) {
+                if (!err) { res.send("Successfully patched article"); }
+                else { res.send("Failed to patch article"); }
+            });
+    })
     .post()
     .delete();
 
+
+// $set note
+// when we send over our form, body parser looks over the requests
+// and create the needed object.  
+// so if we only sent a title, req.body = { title: "hello title"}
+// or if we sent both we'd get req.body = { title: "hello title", content: "i'm content"}
+// so to correct $set what we want to overrite, we can just use this object
 
 // start up the server up
 app.listen(3000, function () {
