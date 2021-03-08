@@ -25,49 +25,45 @@ app.get("/", function (req, res) {
     res.send('Hello World!');
 });
 
-// GET
-app.get("/articles", function (req, res) {
-    Article.find(function (err, foundArticles) {
-        if (!err) {
-            res.send(foundArticles);
-        }
-        else {
-            res.send(err);
-        }
+// chained route handling
+app.route("/articles")
+    .get(function (req, res) {
+        Article.find(function (err, foundArticles) {
+            if (!err) {
+                res.send(foundArticles);
+            }
+            else {
+                res.send(err);
+            }
+        });
+    })
+    .post(function (req, res) {
+
+        // create a new article
+        const article = new Article({
+            title: req.body.title,
+            content: req.body.content,
+        });
+
+        // save and send response
+        article.save(function (err) {
+            if (!err) {
+                res.send("Successfully added a new article"); // send success
+            } else {
+                res.send(err); // send back the error
+            }
+        });
+    })
+    .delete(function (req, res) {
+        Article.deleteMany(function (err) {
+            if (!err) {
+                res.send("Successfully deleted all articles"); // send success
+            }
+            else {
+                res.send(err);
+            }
+        });
     });
-});
-
-// POST
-app.post("/articles", function (req, res) {
-
-    // create a new article
-    const article = new Article({
-        title: req.body.title,
-        content: req.body.content,
-    });
-
-    // save and send response
-    article.save(function (err) {
-        if (!err) {
-            res.send("Successfully added a new article"); // send success
-        } else {
-            res.send(err); // send back the error
-        }
-    });
-});
-
-
-// DELETE
-app.delete("/articles", function (req, res) {
-    Article.deleteMany(function (err) {
-        if (!err) {
-            res.send("Successfully deleted all articles"); // send success
-        }
-        else {
-            res.send(err);
-        }
-    });
-});
 
 // start up the server up
 app.listen(3000, function () {
