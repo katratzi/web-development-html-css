@@ -101,8 +101,14 @@ app.route("/articles/:articleTitle")
                 else { res.send("Failed to patch article"); }
             });
     })
-    .post()
-    .delete();
+    .delete(function (req, res) {
+        Article.deleteOne(
+            { title: req.params.articleTitle },
+            function (err) {
+                if (!err) { res.send("Successfully deleted article"); }
+                else { res.send("Failed to delete article." + err); }
+            });
+    });
 
 
 // $set note
