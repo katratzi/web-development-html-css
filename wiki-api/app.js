@@ -25,6 +25,17 @@ app.get("/", function (req, res) {
     res.send('Hello World!');
 });
 
+app.get("/articles", function (req, res) {
+    Article.find(function (err, foundArticles) {
+        if (!err) {
+            res.send(foundArticles);
+        }
+        else {
+            res.send(err);
+        }
+    });
+});
+
 // start up the server up
 app.listen(3000, function () {
     console.log('Server started on port 3000');
