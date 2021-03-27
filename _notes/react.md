@@ -20,8 +20,8 @@ e.g.
 import Heading from "./Heading.jsx";
 import Heading from "./Heading"; // also ok
 
-// import & export
-// the default can be imported as any name we like
+# import & export
+the default can be imported as any name we like
 export default pi;
 import pie from ...
 
@@ -34,6 +34,10 @@ import pi { doublePi, triplePi} from ..
 import * as pie from ...
 
 //note when importing, order isn't important but names must match exactly
+
+# inline styling
+create a javascript object for inline styling of a property.  Remember, use camelCase for css property
+return <p style={{textDecoration : "line-through"}}>Buy Milk </p>
 
 # Props
 
@@ -81,3 +85,59 @@ function createCard(contact)
 }
 
 {contacts.map(createCard)}
+
+# Ternary and And
+
+Ternary operator for conditional rendering just like C#
+some check ? TRUE : FALSE
+
+// if you want to render nothing. can use null
+currentTime > 12 ? <h1>Why are you still working?</h1> : null
+// but often you'll see the && operator as a wee shorthand hack
+currentTime > 12 && <h1>Why are you still working?</h1>
+
+const isLoggedIn = false;
+const currentTime = new Date(2021, 1, 1, 14).getHours();
+
+function App() {
+  return (
+    // <div className="container">{isLoggedIn ? <h1>Hello</h1> : <Login />}</div>
+    <div className="container">
+      {currentTime > 12 && <h1>Why are you still working?</h1>}
+    </div>
+  );
+}
+
+# declaritive vs imperative programming
+
+With imperative programming we are kind of telling the app what to do and changing styles.  E.g. click a button, then get and element by id, and set it to line-through.  
+Declaritive programming on the other hand you describe what the ui should look like based on it's state.  E.g. if isClicked display with line-through otherwise normal.  And in order for it to work need to use 'hooks' to make it responsive to the state. 
+
+# state
+
+import React from 'react';
+function App(){
+ const state = React.useState(1234);
+ // OR import the extra method we need...
+import React, {useState} from 'react';
+function App(){
+ const state = useState(1234);
+
+ # destructuring
+
+// can map values from an array use destructuring...
+ const [red, green, blue] = [23, 123, 40];
+ console.log(red);
+ // then for our useState thingy...
+ instead of ... const state = useState(123)
+ where we'd have to access the value via state[0] (and state[1] is some fancy function)
+ const [count] = useState(123)
+ jsx = <p>{count}</p>
+
+ // when we want to alter this value.  get the function from useState
+ const [count, setCount] = useState(123);
+ function increase(){
+   setCount(111);
+ }
+
+// "this state comes from the useState hook.  and this function comes from the React module"
