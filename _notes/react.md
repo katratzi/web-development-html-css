@@ -141,3 +141,44 @@ function App(){
  }
 
 // "this state comes from the useState hook.  and this function comes from the React module"
+
+# controlled components
+
+For something like an input form, we want to have a single source of truth.  
+So we set the 'value' attribute in the form to be the value we set in our component. like so...
+
+
+function App() {
+  const [name, setName] = useState("");
+
+  function handleChange(event) {
+    setName(event.target.value);
+  }
+  return (
+    <div className="container">
+      <h1>Welcome {name} </h1>
+      <input
+        onChange={handleChange}
+        type="text"
+        placeholder="What's your name?"
+        value={name} <-------- here
+      />
+      <button>Submit</button>
+    </div>
+  );
+}
+
+# forms
+
+can catch the event and prevent default to stop it refreshing the page (and we lose the values we have)
+note button type has type submit which calls the form function
+
+function handleSubmit(event) {
+    setSubmittedName(name);
+    event.preventDefault();
+  }
+
+...
+      <form onClick={handleSubmit}>
+        <input...
+        <button type="submit">Submit</button>
