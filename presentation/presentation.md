@@ -24,9 +24,6 @@ and how do we manipulat the dom?  with javascript.
 Javascript is the language that powers the web.  It came about from the browser wars, originally called livescript, then reverse engineered by Microsoft to jScript.  Before finally being standardised by Europe witn the ECMAScript.  
 Thats why you'll sometimes see ES6 as the version on Javascript. 
 
-Javascript & ES6 - the language that powers the web
-(livescript, jscript msft reverse, ecmascript standardised)
-95 - even simple conversions would be done on server
 javascript is an interpreted langauge. java is a compiled one
 (interpreted - javascript, python, ruby) (compiled - java, c/c++, swift) (dart- both!)
 
@@ -40,12 +37,19 @@ jQuery - most popular javascript library. john resick.
 jQuery("h1") or even shorter $("h1)
 
 # Bootstrap
-Bootstrap - front end library. twitter...very popular.  Has a number of features like a lot of pre-styled elements (e.g. buttons).  And it has a lot of classes for a responsive design...responds to viewport. (layout...adaptable layout).  
+Bootstrap - front end library. twitter...very popular.  
+Has a number of features like a lot of pre-styled elements (e.g. buttons).  
+And it has a lot of classes for a responsive design...responds to viewport. (layout...adaptable layout).  
+
+
+Front to Back
+So javascript is great for manipulating the front end ... what about the back end?
+Could build backend in php, rails, java, asp.net, python.
+
 
 # Javascript on the server - Node
-Could build backend in php, rails, java, asp.net, python.
-Build backend in the same langauge.  Fast. 
-Locked behind bars in browser.  Beyond into computer...the filesystem, networking system etc. Take javascript out of the browser. 
+Node frees javascript from the broswer and allows it to run on you desktop or server. 
+Beyond into computer...the filesystem, networking system etc. 
 
 ## tooling, npm
 Node.js 
@@ -75,13 +79,18 @@ and how are we saving and retrieving all this info?
 There are a ton of different databse out there...but they all fall into two types. 
 Databases - SQL vs NoSQL
 SQL - structured query language.  - mature (MySQL, PostgreSQL)
-NoSQl - Not Only SQL (mongo, redis)
+
+NoSQL - Not Only SQL (mongo, redis) 
+Don't need to follow the same shape or structure. 
 Structure...SQL tables with very strcutured tables. e.g add extra column
-NoSQL - represented as JSON objects, key value pairs. not the same shape or structure. 
+NoSQL - not the same shape or structure. 
+
 relational and non-relational.
+
 Customers table.  Product Id.  Orders ID.  Lots of relationships
 Using NoSQL for this...a collection of documents.
 more of a 1 to many.  e.g. posts in a blog, or twitter. 
+
 Scalability - nosql scales horizontally (distributed systems). sql vertically
 
 MongoDb and Mongoose
