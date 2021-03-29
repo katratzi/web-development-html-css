@@ -50,50 +50,50 @@ Could build backend in php, rails, java, asp.net, python.
 # Javascript on the server - Node
 Node frees javascript from the broswer and allows it to run on you desktop or server. 
 Beyond into computer...the filesystem, networking system etc. 
+EJS (Templating engines) - a way of creating a site made from 
 
 ## tooling, npm
 Node.js 
-Express
 npm and yarn
-*DEMO*
 
+*DEMO EXPRESS*
 
 # REST
 
-How we get information from a server.  What's makes an API Restful?  Common structure. 
+How we get information from a server.  What's makes an API Restful? Architectural style that uses http and a common set of commands. REST does not require the client to know anything about the structure of the API.
+
+CRUD
+Post, Get, Put & Patch, Delete.
+
+
 Api's (endpoint, path, parameter)
 path /hello/world/
 parameters ?type=xml&type=x
-EJS (Templating engines) - a way of creating a site made from 
-RESTful API (CRUD)
+
 GraphQL
 
 Soap, Rest, GraphQL, 
 Roy fielding - architectural style for your api structure. 
-Get, post, put, patch, delete.  CRUD. 
+ 
 
 and how are we saving and retrieving all this info?
 
 # Databases
 
-There are a ton of different databse out there...but they all fall into two types. 
+There are a ton of different databse out there.  
+MongoDb and Mongoose
+but they all fall into two types. 
 Databases - SQL vs NoSQL
-SQL - structured query language.  - mature (MySQL, PostgreSQL)
+Structure...SQL tables with very strcutured tables. e.g add extra column (MySQL & Postgres)
+Customer orders, banking
 
 NoSQL - Not Only SQL (mongo, redis) 
-Don't need to follow the same shape or structure. 
-Structure...SQL tables with very strcutured tables. e.g add extra column
-NoSQL - not the same shape or structure. 
+not the same shape or structure. 
+more of a 1 to many.  e.g. posts in a blog, or twitter.
 
-relational and non-relational.
-
-Customers table.  Product Id.  Orders ID.  Lots of relationships
-Using NoSQL for this...a collection of documents.
-more of a 1 to many.  e.g. posts in a blog, or twitter. 
+SQL relational VS NoSQL non-relational.
 
 Scalability - nosql scales horizontally (distributed systems). sql vertically
-
-MongoDb and Mongoose
 
 
 # Security
