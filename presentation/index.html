@@ -7,6 +7,7 @@
 
 	<title>Web Development</title>
 
+	<script src="https://kit.fontawesome.com/36ae476d10.js" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
 	<link rel="stylesheet" href="dist/theme/night.css" id="theme">
@@ -70,7 +71,7 @@
 			<!-- javasctip and the dom -->
 			<section>
 				The document object model - DOM
-				<pre><code><script type="text/template">
+				<pre><code data-trim><script type="text/template">
 <html>
 <head>
   <title>My Title</title>
@@ -140,7 +141,7 @@ a = 5; <-- Error</code></pre>
 			<section data-auto-animate>
 				<div class="fragment">
 					<h1>Node</h1>
-					<p>javascript on the server</p>
+					<p>javascript on the server <i class="fas fa-server"></i></p>
 				</div>
 				<div class="fragment">
 					<p>npm (node package manager)</p>
@@ -238,21 +239,41 @@ a = 5; <-- Error</code></pre>
 
 			<!-- Security -->
 
-			<section>
+			<!-- <section>
 				<h2>Store in plain text</h2>
 				<h2>Encrypt an entry</h2>
 				<h2>Hash the password</h2>
 				<h2>Salt and hash the password</h2>
 				<h2>OAuth 2</h2>
-			</section>
+			</section> -->
 
 			<!-- UI Frameworks -->
 			<section>
-				<h2>React - Vue - Angular</h2>
-				<h2>UI = f(state)</h2>
-				<h2>Hash the password</h2>
-				<h2>Salt and hash the password</h2>
-				<h2>OAuth 2</h2>
+				<section><small>One more thing...or more.</small></section>
+				<section>
+					<h2><i class="fab fa-react"></i> React</h2>
+					<h2><i class="fab fa-vuejs"></i> Vue</h2>
+					<h2><i class="fab fa-angular"></i> Angular</h2>
+					<h2><i class="fab fa-ember"></i> Ember </h2>
+				</section>
+				<section>
+					<h1>UI = f(state)</h1>
+					<p>Virtual DOM</p>
+				</section>
+				<section>
+					<p>Virtual DOM</p>
+
+					<blockquote>
+						The virtual DOM is a programming concept where an ideal, or “virtual”, representation of
+						a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This
+						process is called reconciliation.
+					</blockquote>
+					<p>It's a means to an end, the end being declarative, state-driven UI development. </p>
+				</section>
+
+				<section>
+					<img src="./images/virtualdom.jpeg" />
+				</section>
 			</section>
 
 			<section data-auto-animate>

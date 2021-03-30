@@ -104,6 +104,9 @@ Authentication (5 levels)
 4 - salt and hash passwords
 5 - oauth 2
 
+
+# ONE MORE THING...A MILLION
+
 # Frameworks
 React - Angular - Vue 
 (redux, vuex, gatsby)
