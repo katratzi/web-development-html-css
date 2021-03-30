@@ -11,6 +11,7 @@ Terms - html, css, javascript, typescript, mongoDB, MySQL, NoSQL, Redis, postgre
 How do websites actually work?
 I want to find google.com, I ask my ISP and it asks a DNS server where that IP is, you get this ip and then you asks that server for the info.
 216.58.210.46
+
 HTML - structure (walls and toilet)
 CSS - styling (painters and decorators)
 JS - do things, have behaviour. (electricians, plumbing)
@@ -98,19 +99,29 @@ Scalability - nosql scales horizontally (distributed systems). sql vertically
 
 # Security
 Authentication (5 levels)
-1 - plain text (username & password)
-2 - encrypt the table with a secret
-3 - encrypt the password with a hash
-4 - salt and hash passwords
-5 - oauth 2
+1 - plain text (username & password) - moral hazard and insecure
+2 - encrypt the table with a secret - they only need to steal one password
+3 - encrypt the password with a hash - we never store the password itself, only the hash.  But it turns out it's very quick to reverse engineer this hashed value.  (note how qwerty has the same hash)
+4 - salt and hash passwords - we add a random string to the end of whatever password it is.  then hash the resulting string.  And we can even do that for a number of rounds....and each round makes the resulting hash algorithm slower to compute making a dictionary attack s-l-o-w
+5 - oauth 2 - let someone else handle it. 
 
 
-# ONE MORE THING...A MILLION
+# ONE MORE THING...OR MORE
 
 # Frameworks
-React - Angular - Vue 
-(redux, vuex, gatsby)
+React - Angular - Vue - Ember
+they also have natural pairings...(redux, vuex, gatsby)
+They allow creating custom html components, e.g. <Card > <Navigation > <Todo Item>
+
+Virtual DOM
+What does this mean...a more imperative style like in Unity, when you click you have to go through and manually update all the parts of the UI that you want changed.  With declartive it does this automagically. 
+
+React this is done with properties (props) and hooks.  
+
+It looks at the virtual DOM, works out which nodes in the tree need rebuilt...and only replaces that part.
 
 # Feedback
 
 iconixar flaticon
+fontawesome
+presentation reveal.js

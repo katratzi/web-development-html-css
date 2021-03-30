@@ -238,14 +238,122 @@ a = 5; <-- Error</code></pre>
 			</section>
 
 			<!-- Security -->
+			<section>
+				<section>
+					<h3>Security and Authentication</h3>
+				</section>
+				<section>
+					<h3>Store in plain text</h3>
+					<table style="width:100%">
+						<tr>
+							<th>username</th>
+							<th>password</th>
+						</tr>
+						<tr>
+							<td>alice@soft.com</td>
+							<td>qwerty</td>
+						</tr>
+						<tr>
+							<td>bob@bobson.com</td>
+							<td>qwerty</td>
+						</tr>
+						<tr>
+							<td>charles@brown.com</td>
+							<td>1ksu-iajd-olKn</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h3>Encrypt databse with a key</h3>
+					<p>Password locked with 'my secret key'</p>
+					<table style="width:100%">
+						<tr>
+							<th>username</th>
+							<th>password</th>
+						</tr>
+						<tr>
+							<td>alice@soft.com</td>
+							<td>locked</td>
+						</tr>
+						<tr>
+							<td>bob@bobson.com</td>
+							<td>locked</td>
+						</tr>
+						<tr>
+							<td>charles@brown.com</td>
+							<td>locked</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h3>Hash the password</h3>
+					<table style="width:100%">
+						<tr>
+							<th>username</th>
+							<th>password</th>
+						</tr>
+						<tr>
+							<td>alice@soft.com</td>
+							<td>d8578edf8458ce06fbc5bb76a58c5ca4</td>
+						</tr>
+						<tr>
+							<td>bob@bobson.com</td>
+							<td>d8578edf8458ce06fbc5bb76a58c5ca4</td>
+						</tr>
+						<tr>
+							<td>charles@brown.com</td>
+							<td>c419e868dc44d9d29f61e1d526ded2dd</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h3>Salt & Hash the password</h3>
+					<table style="width:100%">
+						<tr>
+							<th>username</th>
+							<th>password</th>
+							<th>salt</th>
+						</tr>
+						<tr>
+							<td>alice@soft.com</td>
+							<td>very long string...</td>
+							<td>>x+npuge</td>
+						</tr>
+						<tr>
+							<td>bob@bobson.com</td>
+							<td>very long string...</td>
+							<td>jr'/tcdr</td>
+						</tr>
+						<tr>
+							<td>charles@brown.com</td>
+							<td>very long string...</td>
+							<td>im{gm_ot</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h3>OAuth 2.0 - Let someone else handle this</h3>
+					<table style="width:100%">
+						<tr>
+							<th>username</th>
+							<th>access token</th>
+						</tr>
+						<tr>
+							<td>alice@soft.com</td>
+							<td>98ajs9adjasd</td>
+						</tr>
+						<tr>
+							<td>bob@bobson.com</td>
+							<td>*nAJd73nda</td>
+						</tr>
+						<tr>
+							<td>charles@brown.com</td>
+							<td>(nasda982a:kasd</td>
+						</tr>
+					</table>
+				</section>
 
-			<!-- <section>
-				<h2>Store in plain text</h2>
-				<h2>Encrypt an entry</h2>
-				<h2>Hash the password</h2>
-				<h2>Salt and hash the password</h2>
-				<h2>OAuth 2</h2>
-			</section> -->
+			</section>
 
 			<!-- UI Frameworks -->
 			<section>
@@ -257,22 +365,19 @@ a = 5; <-- Error</code></pre>
 					<h2><i class="fab fa-ember"></i> Ember </h2>
 				</section>
 				<section>
-					<h1>UI = f(state)</h1>
-					<p>Virtual DOM</p>
-				</section>
-				<section>
-					<p>Virtual DOM</p>
-
+					<h2>Virtual DOM</h2>
 					<blockquote>
 						The virtual DOM is a programming concept where an ideal, or “virtual”, representation of
 						a UI is kept in memory and synced with the “real” DOM by a library such as ReactDOM. This
 						process is called reconciliation.
 					</blockquote>
-					<p>It's a means to an end, the end being declarative, state-driven UI development. </p>
+					<p>...It's a means to an end, the end being declarative, state-driven UI development. </p>
 				</section>
-
 				<section>
 					<img src="./images/virtualdom.jpeg" />
+				</section>
+				<section>
+					<h1>UI = f(state)</h1>
 				</section>
 			</section>
 
@@ -291,6 +396,14 @@ a = 5; <-- Error</code></pre>
 				</code></pre>
 			</section>
 
+			<section>
+				<h2>?</h2>
+				<p></p>
+				<p><small>icons from iconixar @ flaticon</small><br />
+					<small>logos from fontawesome</small><br />
+					<small>presentation in reveal.js</small>
+				</p>
+			</section>
 			<!-- <section>
 				<h2 class="r-fit-text">BIG</h2>
 			</section> -->
