@@ -18,16 +18,12 @@ function App() {
 
     function addNote(note) {
         console.log("adding note");
-        setNotes(function (prevValue) {
-            return [...notes, note];
-        })
+        setNotes((prevValue) => [...notes, note]);
     }
 
     // return all the current notes by mapping over the array
     function createNotes() {
-        return notes.map(function (note, index) {
-            return <Note key={index} title={note.title} content={note.content} />
-        });
+        return notes.map((note, index) => <Note key={index} title={note.title} content={note.content} />);
     }
 
     return (

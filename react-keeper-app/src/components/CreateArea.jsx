@@ -14,7 +14,7 @@ function CreateArea(props) {
         const name = event.target.name;
 
         // use spread operator for prev value, and change the new one
-        setNote(function (prevNote) {
+        setNote((prevNote) => {
             return {
                 ...prevNote,
                 [name]: newValue
