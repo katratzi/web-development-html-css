@@ -10,14 +10,14 @@ function CreateArea(props) {
 
     function handleChange(event) {
 
-        const newValue = event.target.value;
-        const name = event.target.name;
+        // destructor target to get name and value fields
+        const { name, value } = event.target;
 
         // use spread operator for prev value, and change the new one
         setNote((prevNote) => {
             return {
                 ...prevNote,
-                [name]: newValue
+                [name]: value
             };
         })
     }
