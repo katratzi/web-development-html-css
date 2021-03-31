@@ -23,7 +23,19 @@ function App() {
 
     // return all the current notes by mapping over the array
     function createNotes() {
-        return notes.map((note, index) => <Note key={index} title={note.title} content={note.content} />);
+        return notes.map((note, index) =>
+            <Note key={index} id={index} title={note.title} content={note.content}
+                onDelete={deleteNote}
+            />);
+    }
+
+    // delete from notes array using filter function
+    function deleteNote(id) {
+        setNotes((prevValue) => {
+            return prevValue.filter(function (note, index) {
+                return index !== id;
+            });
+        });
     }
 
     return (
