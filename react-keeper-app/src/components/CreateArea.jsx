@@ -22,6 +22,18 @@ function CreateArea(props) {
         })
     }
 
+    // pass a new note object back up and clear our inputs
+    function handleAdd(event) {
+        props.onAdd(note);
+        setNote({
+            title: "",
+            content: ""
+        });
+
+        // stop form refreshing whole page
+        event.preventDefault();
+    }
+
     // use the note.properties and use same handleChange method 
     // using the name attribute to determine what we changed
     return (
@@ -33,7 +45,7 @@ function CreateArea(props) {
                 <textarea name="content"
                     placeholder="Take a note..." rows="3"
                     value={note.content} onChange={handleChange} />
-                <button>Add</button>
+                <button onClick={handleAdd}>Add</button>
             </form>
         </div>
     );
